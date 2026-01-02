@@ -32,4 +32,4 @@ jobs:
          with:
            name: current-calendar.pdf
            path: calendario-*.pdf
-           rentention-days: 90
+           retention-days: 90
