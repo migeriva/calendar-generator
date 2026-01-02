@@ -6,7 +6,7 @@ from reportlab.lib import colors
 from datetime import datetime
 import calendar
 
-year = 2027 #datetime.now().year
+year = datetime.now().year
 file_path = f"./calendario-{year}.pdf"
 
 pagesize = landscape(A4)
