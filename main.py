@@ -21,11 +21,19 @@ doc = SimpleDocTemplate(
 )
 
 styles = getSampleStyleSheet()
+
 styles.add(ParagraphStyle(
     name="MonthTitle",
     fontSize=36,
     alignment=1,
     spaceAfter=6
+))
+
+styles.add(ParagraphStyle(
+    name="CellNumber",
+    fontSize=40,
+    alignment=1,
+    leading=48
 ))
 
 elements = []
@@ -51,10 +59,18 @@ for month in range(1, 13):
     elements.append(Spacer(1, 50))
 
     cal = calendar.monthcalendar(year, month)
+    table_data = [[Paragraph(day, styles["Normal"]) for day in days_es]]
+
     table_data = [days_es]
 
     for week in cal:
-        table_data.append([str(d) if d != 0 else "" for d in week])
+        row = []
+        for d in week:
+            if d != 0:
+                row.append(Paragraph(str(d), styles["CellNumber"]))
+            else:
+                row.append("")
+        table_data.append(row)
 
     table = Table(
         table_data,
@@ -68,10 +84,10 @@ for month in range(1, 13):
         ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
         ("FONT", (0,0), (-1,0), "Helvetica-Bold"),
         ("BACKGROUND", (0,0), (-1,0), colors.lightgrey),
-        ("FONTSIZE", (0,0), (-1,0), 18),
-        ("FONTSIZE", (0,1), (-1,-1), 26),
-        ("TOPPADDING", (0,0), (-1,-1), 22),
-        ("BOTTOMPADDING", (0,0), (-1,-1), 22),
+        ("FONTSIZE", (0,0), (-1,0), 25),
+        ("FONTSIZE", (0,1), (-1,-1), 40),
+        ("TOPPADDING", (0,0), (-1,-1), 0),
+        ("BOTTOMPADDING", (0,0), (-1,-1), 0),
     ]))
 
     elements.append(table)
