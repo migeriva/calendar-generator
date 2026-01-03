@@ -85,7 +85,6 @@ for month in range(1, 13):
         ("FONT", (0,0), (-1,0), "Helvetica-Bold"),
         ("BACKGROUND", (0,0), (-1,0), colors.lightgrey),
         ("FONTSIZE", (0,0), (-1,0), 25),
-        ("FONTSIZE", (0,1), (-1,-1), 40),
         ("TOPPADDING", (0,0), (-1,-1), 0),
         ("BOTTOMPADDING", (0,0), (-1,-1), 0),
     ]))
